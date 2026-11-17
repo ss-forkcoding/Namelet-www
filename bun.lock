@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "name-kit-www",
+      "name": "namelet-www",
       "dependencies": {
         "next": "16.4.6",
         "react": "19.3.0",

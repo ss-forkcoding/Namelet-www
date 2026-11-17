@@ -1,0 +1,17 @@
+# .
+ROLE: root · 네임렛(Namelet) iOS 앱 소개 사이트 (Next.js App Router)
+create-next-app 기본 골격이다. 앱 본체는 형제 폴더 ../namelet 에 있다.
+
+## dirs
+public/ — 정적 에셋 (기본 svg)
+src/app/ — App Router 라우트 (layout.tsx·page.tsx·globals.css)
+
+## files
+.gitignore — node_modules·.next·.env* 제외 (!.env.example)
+AGENTS.md — create-next-app 생성 에이전트 지침
+README.md — create-next-app 기본 README
+bun.lock — bun 락파일
+eslint.config.mjs — ESLint 설정 (eslint-config-next)
+next.config.ts — Next.js 설정
+package.json — 스크립트 dev·build·start·lint
+tsconfig.json — TS 설정, 별칭 @/* → src/*
