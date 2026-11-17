@@ -1,0 +1,9 @@
+# src/lib
+ROLE: 로직 · 블로그 원고 읽기, 언어 판정, 의견 처리
+
+## dirs
+feedback/ — core.ts 입력 검증·보낸 곳 판정, rate-limit.ts IP당 10분 5회, sheet.ts Apps Script 웹훅 전송
+
+## files
+blog.ts — 마크다운 글 읽기, 번역 누락·frontmatter 검증, 질문형 제목에서 FAQ 추출
+locale.ts — Accept-Language 기본 언어를 ko·en·ja로 판정, 그 밖은 영어

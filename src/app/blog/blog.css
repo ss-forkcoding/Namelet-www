@@ -1,0 +1,166 @@
+/* 블로그 전용 스타일. 색은 앱 아이콘의 잉크·종이 2색에서만 파생한다. */
+:root {
+  --ink: #2e2e2e;
+  --paper: #f1f1f1;
+  --white: #ffffff;
+  --muted: #5c5c5c;
+  --hairline: rgb(46 46 46 / 0.16);
+  --gap-1: 8px;
+  --gap-2: 16px;
+  --gap-3: 24px;
+  --gap-4: 40px;
+  --gap-5: 64px;
+  --rail-width: 720px;
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-h1: clamp(2rem, 5vw, 3rem);
+  --text-h2: 1.5rem;
+  --text-h3: 1.1875rem;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* keep-all 은 한국어 전용이다. 일본어에 쓰면 줄바꿈이 사라져 넘친다. */
+html:lang(en) body,
+html:lang(ja) body { word-break: normal; }
+
+html:lang(ja) body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  line-break: strict;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+html:lang(ja) h1,
+html:lang(ja) h2 { word-break: auto-phrase; }
+
+p, ul, ol { margin: 0; }
+
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+.blog-header,
+.blog-intro,
+.blog-rail,
+.blog-footer {
+  max-width: calc(var(--rail-width) + 2 * var(--gap-3));
+  margin-inline: auto;
+  padding-inline: var(--gap-3);
+}
+
+.blog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-2);
+  padding-block: var(--gap-3);
+}
+
+.blog-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-1);
+  min-height: 44px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blog-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; column-gap: var(--gap-2); }
+
+@media (max-width: 480px) {
+  .blog-header nav { column-gap: 12px; }
+}
+
+.blog-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-small);
+}
+
+.blog-nav-link[aria-current="page"] { font-weight: 600; text-decoration: none; }
+
+.blog-intro { padding-block: var(--gap-5) var(--gap-4); }
+.blog-intro h1 { font-size: var(--text-h1); }
+.blog-lead { margin-top: var(--gap-2); color: var(--muted); font-size: 1.1875rem; }
+.post-meta { margin-top: var(--gap-3); color: var(--muted); font-size: var(--text-small); }
+
+.blog-rail { padding-bottom: var(--gap-5); }
+
+.blog-empty {
+  padding-block: var(--gap-4);
+  border-top: 1px solid var(--hairline);
+  color: var(--muted);
+}
+
+/* 목록은 헤어라인으로만 나눈다. 카드·그림자를 쓰지 않는다. */
+.post-list { list-style: none; padding: 0; border-top: 1px solid var(--hairline); }
+.post-list li { border-bottom: 1px solid var(--hairline); }
+.post-list a { display: block; padding-block: var(--gap-3); text-decoration: none; }
+.post-list a:hover h2 { text-decoration: underline; text-decoration-thickness: 2px; }
+.post-list a:focus-visible { outline-offset: 4px; }
+.post-list time { color: var(--muted); font-size: var(--text-small); }
+.post-list h2 { margin-block: 4px var(--gap-1); font-size: var(--text-h2); }
+.post-list p { color: var(--muted); }
+
+.prose { padding-top: var(--gap-4); border-top: 1px solid var(--hairline); }
+.prose > * + * { margin-top: var(--gap-2); }
+.prose h2 { margin-top: var(--gap-5); font-size: var(--text-h2); }
+.prose > h2:first-child { margin-top: 0; }
+.prose h3 { margin-top: var(--gap-4); font-size: var(--text-h3); }
+.prose ul, .prose ol { padding-left: 1.5em; }
+.prose li + li { margin-top: 4px; }
+.prose blockquote { margin: var(--gap-3) 0; padding-left: var(--gap-2); border-left: 3px solid var(--ink); color: var(--muted); }
+.prose img { display: block; max-width: 100%; height: auto; border-radius: 16px; }
+.prose code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+.prose pre { padding: var(--gap-2); overflow-x: auto; background: var(--white); border: 1px solid var(--hairline); border-radius: 12px; }
+.prose table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; }
+.prose th, .prose td { min-width: 96px; padding: 12px var(--gap-2) 12px 0; border-bottom: 1px solid var(--hairline); text-align: left; vertical-align: top; }
+
+.post-store { margin-top: var(--gap-5); padding-top: var(--gap-4); border-top: 1px solid var(--hairline); }
+.post-store h2 { font-size: var(--text-h2); }
+.post-store p { margin-top: var(--gap-1); }
+.post-store-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--gap-3);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.post-back { margin-top: var(--gap-5); }
+
+/* 바닥 헤어라인을 본문 폭에 맞춘다. */
+.blog-footer {
+  max-width: none;
+  width: min(var(--rail-width), 100% - 2 * var(--gap-3));
+  padding-inline: 0;
+  padding-block: var(--gap-4);
+  border-top: 1px solid var(--hairline);
+  color: var(--muted);
+  font-size: var(--text-small);
+}

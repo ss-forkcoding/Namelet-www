@@ -1,0 +1,10 @@
+# src/app/blog
+ROLE: 웹 라우트 · ko·en·ja 정적 블로그
+
+## dirs
+[lang]/layout.tsx — 블로그 루트 레이아웃, 언어별 html lang, 없는 언어는 404
+[lang]/page.tsx — 언어별 글 목록, Blog 구조화 데이터
+[lang]/[slug]/page.tsx — 글 상세, 마크다운(GFM) 렌더링, 대체 링크, BlogPosting·FAQ 구조화 데이터, 스토어 주소가 있으면 글 끝 링크
+
+## files
+blog.css — 블로그 전용 스타일, 잉크·종이 2색 토큰

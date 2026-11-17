@@ -1,14 +1,16 @@
 # .
-ROLE: root · 네임렛(Namelet) iOS 앱 소개 사이트 (Next.js App Router)
-create-next-app 기본 골격이다. 앱 본체는 형제 폴더 ../namelet 에 있다.
+ROLE: root · 네임렛(Namelet) iOS 앱 소개 사이트와 ko·en·ja 블로그 (Next.js App Router)
+앱 본체는 형제 폴더 ../namelet 에 있다. 블로그 구조는 U-Saver-Web 을 따른다.
 
 ## dirs
-public/ — 정적 에셋 (기본 svg)
-src/app/ — App Router 라우트 (layout.tsx·page.tsx·globals.css)
+public/ — 정적 에셋 (기본 svg, app-ads.txt = AdMob 판매자 인증)
+scripts/ — feedback-apps-script.gs: 의견 시트에 붙이는 Google Apps Script 웹 앱 원본
+src/ → src/llm-index.txt
 
 ## files
+.env.example — 의견 웹훅 환경변수 이름 (FEEDBACK_WEBHOOK_URL·FEEDBACK_WEBHOOK_SECRET)
 .gitignore — node_modules·.next·.env* 제외 (!.env.example)
-AGENTS.md — create-next-app 생성 에이전트 지침
+AGENTS.md — Next.js 에이전트 규칙, 사이트 구조, 블로그 글 추가 규칙
 README.md — create-next-app 기본 README
 bun.lock — bun 락파일
 eslint.config.mjs — ESLint 설정 (eslint-config-next)

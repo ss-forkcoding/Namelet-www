@@ -1,0 +1,11 @@
+# src
+ROLE: 웹 소스 · 라우트, 사이트 값·블로그 원고, 공용 컴포넌트
+
+## dirs
+app/ → app/llm-index.txt
+components/ → components/llm-index.txt
+content/ → content/llm-index.txt
+lib/ → lib/llm-index.txt
+
+## files
+proxy.ts — 언어 없는 /blog 를 브라우저 언어 경로로 보낸다

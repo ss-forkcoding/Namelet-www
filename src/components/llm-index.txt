@@ -1,0 +1,12 @@
+# src/components
+ROLE: 웹 UI · 블로그·지원·정책 페이지 공용 컴포넌트
+
+## files
+BlogHeader.tsx — 블로그 머리글, 브랜드 링크, 같은 글의 언어 전환 링크
+BrandMark.tsx — 앱 아이콘과 같은 n 심볼 SVG
+FeedbackForm.tsx — 의견 양식 (useActionState, 필드별 오류)
+JsonLd.tsx — 구조화 데이터 script 태그
+page-shell.css — 지원·정책 페이지 스타일 (라이트·다크)
+PageShell.tsx — 지원·정책 페이지 머리글·바닥글
+PolicySections.tsx — 정책 문구 데이터(PolicySection)를 절·표·목록으로 그린다
+PostDate.tsx — 언어별 글 날짜 표시
