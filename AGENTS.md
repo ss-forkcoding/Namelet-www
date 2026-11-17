@@ -37,3 +37,9 @@ date: 2026-11-17
 `/support`·`/privacy`·`/terms` 는 `src/app/(site)/` 아래에 있다. 문구는 `src/content/legal.ts`·`feedback-copy.ts`, 값은 `src/content/policy.ts` 에서 바꾼다. 앱 가격·한도가 바뀌면 `policy.ts` 의 `appPolicy` 를 앱 `Policy.swift` 와 같이 고친다.
 
 의견 양식은 Google Apps Script 웹 앱(`scripts/feedback-apps-script.gs`)으로 시트에 저장한다. 환경변수 `FEEDBACK_WEBHOOK_URL`·`FEEDBACK_WEBHOOK_SECRET` 이 필요하다(`.env.example`). 앱의 설정 > 피드백 보내기는 `/support?from=app-ios-<버전>#feedback` 으로 열고, 서버 액션이 Referer 의 `from` 을 시트 "출처" 열에 남긴다.
+
+## 랜딩과 App Store CTA
+
+랜딩(`/`)은 `src/app/(site)/page.tsx` 와 `landing.css`, 문구는 `src/content/landing.ts` 에 있다. 디자인 규칙은 `DESIGN.md` 를 따른다.
+
+iOS 앱이 출시되면 `src/content/site.ts` 의 `appStoreUrl` 에 국가 없는 주소(`https://apps.apple.com/app/id…`)만 넣는다. 랜딩 히어로·마지막 띠의 "출시 준비 중" 표시가 Apple 공식 배지(`public/badges/`, 수정 금지)와 데스크톱 QR 로 바뀌고, 블로그 글 끝에도 배지가 나온다. 클릭은 GA 이벤트 `app_store_click`(`placement`, `page_lang`)으로 남는다. App Store Connect 캠페인 공급자 토큰이 있으면 `appStoreProviderToken` 에 넣어 `pt`·`ct` 를 붙인다. 새 버튼 위치는 `storePlacements` 에 이름을 더한다. 스토어 링크는 `StoreCta`·`StoreBadgeLink` 로만 만든다.

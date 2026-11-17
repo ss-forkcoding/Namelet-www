@@ -1,10 +1,12 @@
-/* 블로그 전용 스타일. 색은 앱 아이콘의 잉크·종이 2색에서만 파생한다. */
+/* 블로그 전용 스타일. 색은 사이트 팔레트(Deep Mocha·Pale Sky·Vanilla Custard)에서만 파생한다. 정본은 globals.css. */
 :root {
-  --ink: #2e2e2e;
-  --paper: #f1f1f1;
+  --ink: #432f2e;
+  --paper: #fffbec;
   --white: #ffffff;
-  --muted: #5c5c5c;
-  --hairline: rgb(46 46 46 / 0.16);
+  --sky: #c1dbe8;
+  --vanilla: #fff0b5;
+  --muted: #5e4746;
+  --hairline: rgb(67 47 46 / 0.16);
   --gap-1: 8px;
   --gap-2: 16px;
   --gap-3: 24px;
@@ -130,7 +132,7 @@ a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-rad
 .prose h3 { margin-top: var(--gap-4); font-size: var(--text-h3); }
 .prose ul, .prose ol { padding-left: 1.5em; }
 .prose li + li { margin-top: 4px; }
-.prose blockquote { margin: var(--gap-3) 0; padding-left: var(--gap-2); border-left: 3px solid var(--ink); color: var(--muted); }
+.prose blockquote { margin: var(--gap-3) 0; padding-left: var(--gap-2); background: var(--sky); padding: var(--gap-2); border-radius: 12px; }
 .prose img { display: block; max-width: 100%; height: auto; border-radius: 16px; }
 .prose code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
 .prose pre { padding: var(--gap-2); overflow-x: auto; background: var(--white); border: 1px solid var(--hairline); border-radius: 12px; }
@@ -140,17 +142,8 @@ a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-rad
 .post-store { margin-top: var(--gap-5); padding-top: var(--gap-4); border-top: 1px solid var(--hairline); }
 .post-store h2 { font-size: var(--text-h2); }
 .post-store p { margin-top: var(--gap-1); }
-.post-store-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding-inline: var(--gap-3);
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 600;
-  text-decoration: none;
-}
+.store-badge { display: inline-flex; border-radius: 10px; }
+.store-badge img { display: block; height: 52px; width: auto; }
 
 .post-back { margin-top: var(--gap-5); }
 

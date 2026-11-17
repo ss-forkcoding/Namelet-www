@@ -6,8 +6,9 @@ blog/<slug>/ — 글 하나당 ko.md, en.md, ja.md 세 파일 (형식은 AGENTS.
 
 ## files
 feedback-copy.ts — 의견 양식 문구와 오류 문장
+landing.ts — 랜딩 문구, 숫자는 policy.ts 에서 읽는다
 langs.ts — 지원 언어(ko·en·ja)와 영어 대체 규칙의 단일 출처
 legal.ts — 개인정보 처리방침·이용약관 문구 (PolicySection 데이터)
 policy.ts — 운영자·문의 이메일·시행일, 앱 정책 숫자(Policy.swift 와 같아야 함), 의견 종류·길이 제한
 seo.ts — 블로그 경로, 대체 링크, 링크 미리보기, 게시자 정보
-site.ts — 사이트 이름·도메인·App Store 주소·GA 측정 ID, 언어별 블로그 문구
+site.ts — 사이트 이름·도메인·GA 측정 ID, App Store 주소·캠페인 토큰·버튼 위치(storePlacements), 언어별 블로그 문구

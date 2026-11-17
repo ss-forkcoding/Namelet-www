@@ -1,7 +1,8 @@
 /* 지원·정책 페이지 공용 스타일 (PageShell 이 불러온다) */
-.shell { --ink: #2e2e2e; --paper: #f0f0f0; --muted: #6b6b6b; --line: #d6d6d6; --card: #ffffff;
+/* 팔레트 정본은 globals.css. 다크는 Deep Mocha 바탕에 Vanilla 글자다. */
+.shell { --ink: #432f2e; --paper: #fffbec; --muted: #5e4746; --line: rgb(67 47 46 / 0.2); --card: #ffffff;
   min-height: 100vh; background: var(--paper); color: var(--ink); font-family: var(--font-geist-sans), system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif; }
-@media (prefers-color-scheme: dark) { .shell { --ink: #f0f0f0; --paper: #1f1f1f; --muted: #a3a3a3; --line: #3a3a3a; --card: #2e2e2e; } }
+@media (prefers-color-scheme: dark) { .shell { --ink: #fff0b5; --paper: #2b1f1e; --muted: #c1dbe8; --line: rgb(255 240 181 / 0.18); --card: #432f2e; } }
 .shell a { color: inherit; text-underline-offset: 3px; }
 .shell-header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; max-width: 760px; margin: 0 auto; padding: 24px 20px; }
 .shell-brand { font-weight: 700; font-size: 1.125rem; text-decoration: none; }
@@ -21,7 +22,7 @@
 .rail-section h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
 .rail-section p + p { margin-top: 8px; }
 .section-note { color: var(--muted); margin-bottom: 16px; }
-.policy-notice { background: var(--card); border-left: 4px solid var(--ink); padding: 12px 16px; margin-bottom: 12px; font-weight: 600; }
+.policy-notice { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 12px; font-weight: 600; }
 .policy-records { display: grid; gap: 12px; margin-top: 12px; }
 .policy-record { background: var(--card); border-radius: 12px; padding: 16px; }
 .policy-record h3 { font-weight: 700; margin-bottom: 8px; }

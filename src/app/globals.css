@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
+/* 사이트 공통 팔레트의 정본. 색은 Deep Mocha·Pale Sky·Vanilla Custard 세 색과 그 파생값만 쓴다. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mocha: #432f2e; /* 글자·주 행동. cream 위 12.0:1, vanilla 위 10.9:1, sky 위 8.7:1 */
+  --mocha-soft: #5e4746; /* 보조 글자. sky 위 5.9:1 이상 */
+  --sky: #c1dbe8;
+  --vanilla: #fff0b5;
+  --cream: #fffbec; /* 바탕. vanilla 를 흰색에 섞은 값 */
+  --hairline: rgb(67 47 46 / 0.16);
+  --hairline-strong: rgb(67 47 46 / 0.28);
+
+  --gap-1: 8px;
+  --gap-2: 16px;
+  --gap-3: 24px;
+  --gap-4: 40px;
+  --gap-5: 64px;
+  --gap-6: 112px;
+
+  --radius-control: 12px;
+  --radius-surface: 20px;
+  --page-width: 1120px;
+  --text-small: 0.9375rem;
+  --text-h2: clamp(1.75rem, 3.6vw, 2.5rem);
+  --text-display: clamp(2.5rem, 6.4vw, 4.5rem);
+
+  --background: var(--cream);
+  --foreground: var(--mocha);
 }
 
 @theme inline {
@@ -12,15 +35,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }

@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { BlogHeader } from "@/components/BlogHeader";
 import { JsonLd } from "@/components/JsonLd";
 import { PostDate } from "@/components/PostDate";
+import { StoreBadgeLink } from "@/components/StoreBadgeLink";
 import { blogLanguages, blogPath, blogPreview, ogImagePath, publisher } from "@/content/seo";
 import { appStoreUrl, blogCopy, isLang, site, type Lang } from "@/content/site";
 import { extractFaqs, getPost, getSlugs, type Post } from "@/lib/blog";
@@ -86,9 +87,7 @@ function PostStore({ lang }: Readonly<{ lang: Lang }>) {
       <h2 id="post-store-title">{copy.storeTitle}</h2>
       <p>{copy.storeLead}</p>
       <p>
-        <a className="post-store-link" href={appStoreUrl}>
-          {copy.storeAction}
-        </a>
+        <StoreBadgeLink href={appStoreUrl} label={copy.storeAction} lang={lang} placement="blog_post_end" />
       </p>
     </aside>
   );

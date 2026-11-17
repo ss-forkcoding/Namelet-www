@@ -11,8 +11,26 @@ export const site = {
   gaMeasurementId: "G-KMWNRFC6CC",
 } as const;
 
-// 값이 있으면 블로그 글 끝에 App Store 링크를 그린다. 스토어 주소가 생기기 전에는 null 로 두어 가짜 CTA 를 만들지 않는다.
+// App Store 주소의 단일 출처. 출시 뒤 이 값 하나만 넣으면 랜딩 CTA·QR·블로그 글 끝 링크가 모두 스토어로 바뀐다.
+// null 이면 "출시 준비 중" 상태를 글로 보여 주고 가짜 버튼을 만들지 않는다. 국가 없는 주소(https://apps.apple.com/app/id…)를 쓴다.
 export const appStoreUrl: string | null = null;
+
+// App Store Connect > 앱 분석 > 캠페인 링크의 공급자 토큰(pt). 값이 있어야 ct 가 앱 분석에 집계된다.
+export const appStoreProviderToken: string | null = null;
+
+// 스토어 버튼 위치. GA 이벤트 placement 와 App Store 캠페인 이름(ct)의 단일 출처다.
+export const storePlacements = ["landing_hero", "landing_hero_qr", "landing_closing", "landing_closing_qr", "blog_post_end"] as const;
+export type StorePlacement = (typeof storePlacements)[number];
+
+// pt 가 없으면 원래 주소를 그대로 쓴다. ct 는 40자 이하라 "web_" + 위치 + 언어로 짓는다.
+export function appStoreLink(base: string, placement: StorePlacement, lang: Lang): string {
+  if (!appStoreProviderToken) return base;
+  const url = new URL(base);
+  url.searchParams.set("pt", appStoreProviderToken);
+  url.searchParams.set("ct", `web_${placement}_${lang}`);
+  url.searchParams.set("mt", "8");
+  return url.toString();
+}
 
 export type BlogCopy = Readonly<{
   label: string;

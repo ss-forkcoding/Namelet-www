@@ -12,6 +12,7 @@ export const appPolicy = {
   maxCaseCount: 20,
   freeGridMax: 5,
   gridMax: 10,
+  depthMax: 5,
   caseSlotPriceWon: 500,
   adFreePriceWon: 4900,
 } as const;
